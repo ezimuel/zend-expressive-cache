@@ -15,7 +15,7 @@ You can install the *zend-expressive-cache* module with composer:
 $ composer require ezimuel/zend-expressive-cache
 ```
 
-After the installation you need to set a ['cache']['service-name'] value in a
+After the installation you need to set a `['cache']['service-name']` value in a
 configuration file. This is the name of a PSR-16 cache service that you need
 to provide in the [PSR-11](https://github.com/php-fig/container) container of
 your Expressive application.
@@ -28,7 +28,7 @@ caching as follows:
 use Zend\Expressive\Cache\CacheMiddleware;
 use App\Action\HomeAction;
 
-$app->get('/', [CacheMiddleware::class, HomeAction::class], 'home');
+$app->get('/home', [CacheMiddleware::class, HomeAction::class], 'home');
 ```
 
 The `CacheMiddleware` is typically the first one in the pipe of the route.
