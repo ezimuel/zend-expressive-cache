@@ -1,4 +1,10 @@
 <?php
+/**
+ * @see       https://github.com/zendframework/zend-expressive-cache for the canonical source repository
+ * @copyright Copyright (c) 2017 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   https://github.com/zendframework/zend-expressive-cache/blob/master/LICENSE.md New BSD License
+ */
+
 namespace ZendTest\Expressive\Cache;
 
 use PHPUnit\Framework\TestCase;
@@ -28,14 +34,16 @@ class CacheMiddlewareFactoryTest extends TestCase
     {
         $config = [
             'cache' => [
-                'service-name' => 'foo'
-            ]
+                'service_name' => 'foo',
+            ],
         ];
-        $this->container->get('config')
-                        ->willReturn($config);
+        $this->container
+            ->get('config')
+            ->willReturn($config);
 
-        $this->container->get($config['cache']['service-name'])
-                        ->willReturn($this->cache->reveal());
+        $this->container
+            ->get($config['cache']['service_name'])
+            ->willReturn($this->cache->reveal());
 
         $middleware = ($this->factory)($this->container->reveal());
 
