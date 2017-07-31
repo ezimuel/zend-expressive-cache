@@ -8,7 +8,6 @@
 namespace Zend\Expressive\Cache;
 
 use Psr\Container\ContainerInterface;
-use Zend\Cache\StorageFactory;
 
 class CacheMiddlewareFactory
 {

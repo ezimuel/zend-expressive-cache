@@ -7,20 +7,20 @@
 
 namespace ZendTest\Expressive\Cache;
 
-use PHPUnit\Framework\TestCase;
-use Psr\SimpleCache\CacheInterface;
-use Psr\Http\Message\UriInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
 use Interop\Http\ServerMiddleware\DelegateInterface;
-use Zend\Expressive\Cache\CacheMiddleware;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Zend\Diactoros\Response\HtmlResponse;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\UriInterface;
+use Psr\SimpleCache\CacheInterface;
 use Zend\Diactoros\Response\EmptyResponse;
+use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Diactoros\Response\JsonResponse;
 use Zend\Diactoros\Response\RedirectResponse;
 use Zend\Diactoros\Response\TextResponse;
+use Zend\Expressive\Cache\CacheMiddleware;
 
 class CacheMiddlewareTest extends TestCase
 {
