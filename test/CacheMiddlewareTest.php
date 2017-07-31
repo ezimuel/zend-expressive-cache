@@ -42,12 +42,6 @@ class CacheMiddlewareTest extends TestCase
             ->willReturn($this->response->reveal());
     }
 
-    public function testConstructor()
-    {
-        $middleware = new CacheMiddleware($this->cache->reveal(), []);
-        $this->assertInstanceOf(CacheMiddleware::class, $middleware);
-    }
-
     public function getConfigEmptyCache()
     {
         return [
@@ -59,8 +53,12 @@ class CacheMiddlewareTest extends TestCase
     /**
      * @dataProvider getConfigEmptyCache
      */
-    public function testProcess(string $method, string $path, ?string $toCache, array $config)
-    {
+    public function testProcessDelegatesAndStoresResponseInCache(
+        string $method,
+        string $path,
+        ?string $toCache,
+        array $config
+    ) {
         $this->cache->get($method . $path)->willReturn($toCache);
         $this->cache
             ->set(
@@ -107,9 +105,13 @@ class CacheMiddlewareTest extends TestCase
     /**
      * @dataProvider getConfigWithCache
      */
-    public function testProcessWithCache(string $method, string $path, string $toCache, array $config)
-    {
-        $response = $this->testProcess($method, $path, $toCache, $config);
+    public function testProcessReturnsCachedResponseWhenFound(
+        string $method,
+        string $path,
+        string $toCache,
+        array $config
+    ) {
+        $response = $this->testProcessDelegatesAndStoresResponseInCache($method, $path, $toCache, $config);
         $this->assertInstanceOf(get_class(unserialize($toCache)), $response);
         $this->assertEquals(unserialize($toCache), $response);
     }
