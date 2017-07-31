@@ -1,5 +1,5 @@
 <?php
-namespace Zend\Expressive\Cache;;
+namespace Zend\Expressive\Cache;
 
 class ConfigProvider
 {
