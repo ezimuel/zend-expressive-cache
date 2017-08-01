@@ -4,7 +4,7 @@
          bootstrap="vendor/autoload.php"
          colors="true">
     <testsuites>
-        <testsuite name="Zend\\Expressive\\Cache\\Tests">
+        <testsuite name="zend-expressive-cache">
             <directory>./test</directory>
         </testsuite>
     </testsuites>
