@@ -7,21 +7,47 @@ Zend-expressive-cache is an [Expressive](https://github.com/zendframework/zend-e
 module for caching any HTTP [PSR-7](http://www.php-fig.org/psr/psr-7/) response
 using a [PSR-16](http://www.php-fig.org/psr/psr-16/) cache system.
 
-## Getting Started
+## Installation
 
 You can install the *zend-expressive-cache* module with composer:
 
 ```bash
-$ composer require ezimuel/zend-expressive-cache
+$ composer require zendframework/zend-expressive-cache
 ```
 
-After the installation you need to set a `['cache']['service-name']` value in a
-configuration file. This is the name of a PSR-16 cache service that you need
-to provide in the [PSR-11](https://github.com/php-fig/container) container of
-your Expressive application.
+## Documentation
 
-When configured, you need to add the `CacheMiddleware` to the routes that you
-want to cache. For instance, image you have a `/home` route, you can add the
+Documentation is [in the doc tree](doc/book/), and can be compiled using [mkdocs](http://www.mkdocs.org):
+
+```bash
+$ mkdocs build
+```
+
+You may also [browse the documentation online](https://docs.zendframework.com/problem-details/).
+
+## Configuration
+
+After the installation you need to set the following configuration in your
+*Expressive* application:
+
+```php
+return [
+    'cache' => [
+        'service-name' => <cache-service-name>,
+        'ttl' => 3600, // in seconds
+    ]
+];
+```
+
+where `<cache-service-name>` is the name of a PSR-16 cache service and `ttl` is
+the *Time to live* value, reported in seconds.
+The cache service should be provided using using a [PSR-11](https://github.com/php-fig/container)
+container of your *Expressive* application.
+
+## Usage
+
+When configured, you can add the `CacheMiddleware` to the routes that you
+want to cache. For instance, if you have a `/home` route, you can add the
 caching as follows:
 
 ```php
@@ -31,4 +57,7 @@ use App\Action\HomeAction;
 $app->get('/home', [CacheMiddleware::class, HomeAction::class], 'home');
 ```
 
-The `CacheMiddleware` is typically the first one in the pipe of the route.
+The `CacheMiddleware` is typically the first one in the pipe of the route. The
+first time, the cache will store the HTTP response provided by `HomeAction::class`.
+Starting from the second request, the cache will return the value stored until
+the `ttl` timeout.

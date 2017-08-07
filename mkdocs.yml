@@ -1,0 +1,9 @@
+docs_dir: doc/book
+site_dir: doc/html
+pages:
+    - index.md
+    - Introduction: intro.md
+site_name: Expressive Cache module
+site_description: 'Cache module for Expressive and PSR-7 applications'
+repo_url: 'https://github.com/zendframework/zend-expressive-cache'
+copyright: 'Copyright (c) 2017 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a>'

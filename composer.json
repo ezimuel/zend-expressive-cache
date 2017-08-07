@@ -1,5 +1,5 @@
 {
-    "name": "ezimuel/zend-expressive-cache",
+    "name": "zendframework/zend-expressive-cache",
     "description": "Cache module for Expressive PHP applications",
     "homepage": "https://docs.zendframework.com/zend-expressive-cache/",
     "type": "library",
