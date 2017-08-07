@@ -1,7 +1,7 @@
 # Expressive Cache module
 
-[![Build Status](https://secure.travis-ci.org/ezimuel/zend-expressive-cache.svg?branch=master)](https://secure.travis-ci.org/ezimuel/zend-expressive-cache)
-[![Coverage Status](https://coveralls.io/repos/github/ezimuel/zend-expressive-cache/badge.svg?branch=master)](https://coveralls.io/github/ezimuel/zend-expressive-cache?branch=master)
+[![Build Status](https://secure.travis-ci.org/zendframework/zend-expressive-cache.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-expressive-cache)
+[![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-expressive-cache/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-expressive-cache?branch=master)
 
 Zend-expressive-cache is an [Expressive](https://github.com/zendframework/zend-expressive)
 module for caching any HTTP [PSR-7](http://www.php-fig.org/psr/psr-7/) response
